@@ -37,7 +37,7 @@ class TelegramBot:
 
 def main():
     load_dotenv()
-    TelegramBot(os.getenv('TELEGRAM_BOT'), os.getenv('PROJECT_ID')).start_bot()
+    TelegramBot(os.environ['TELEGRAM_BOT'], os.environ['PROJECT_ID']).start_bot()
 
 
 if __name__ == '__main__':

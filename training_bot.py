@@ -20,7 +20,7 @@ def training_bot(training_file, project_id):
 
 def main():
     load_dotenv()
-    training_bot('questions.json', os.getenv('PROJECT_ID'))
+    training_bot('questions.json', os.environ['PROJECT_ID'])
 
 
 if __name__ == '__main__':
