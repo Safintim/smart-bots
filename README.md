@@ -4,7 +4,7 @@
 Два бота (один для группы вконтакте, другой для телеграмма) обученные с помощью
  [DialogFlow](https://dialogflow.com/).
  
-Умеет отвечать на вопросы типа:
+Умеютт отвечать на вопросы типа:
 * Приветствия
 * Устройство к нам работу - "Хочу работать у вас", "Как устроиться к вам?" и т.д.
 * Забыл пароль - "Восстановить пароль", "Проблемы со входом" и т.д.
@@ -43,7 +43,7 @@ pip3 install -r requirements.txt
 5. Персональные настройки:
 
 Скрипт берет настройки из .env файла, где указаны токен телеграм-бота, токен вк-бота, 
-токен чат-логгер-бота, номер проекта на dialogflow, ключ dialogflow. Создайте файл .env вида:
+токен чат-логгер-бота, номер проекта на dialogflow, ключ dialogflow, номер чата. Создайте файл .env вида:
  
 ```sh
 TELEGRAM_BOT=your_token
@@ -57,14 +57,20 @@ PROJECT_ID=your_project_id
 ```json
 {
     "display_name1": {
-        "training_phrases_parts": [
-            "text_request",
-            "text_request",
+        "questions": [
+            "text_questions",
+            "text_questions",
             "..."
         ],
-        "message_texts": "Если вы хотите устроиться к нам, напишите на почту game-of-verbs@gmail.com мини-эссе о себе и прикрепите ваше портфолио."
+        "answer": "answer"
     },
-    "display_name2": {...
+    "display_name2": {
+        "questions2": [
+            "text_questions",
+            "text_questions",
+            "..."
+        ],
+        "answer2": "answer"
     }
 }
 ```
@@ -83,12 +89,13 @@ python3 telegram_bot.py
 
 Найти ботов в телеграме **_@smart_flow_bot_**, **_@devmanlogging_bot_**
 
-Найти группу [Умный бот](https://vk.com/club182299966) 
-
 Запустить вк бота:
 ```sh
 python3 vk_bot.py
 ```
+
+Найти группу [Умный бот](https://vk.com/club182299966) 
+
 
 
 ## Heroku:
@@ -102,7 +109,7 @@ python3 vk_bot.py
 
 Пример:
 ```python
-class MyHandler(logging.Handler):
+class LogsHandler(logging.Handler):
 
     def __init__(self, bot):
         super().__init__()
