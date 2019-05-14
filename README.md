@@ -1,4 +1,4 @@
-# smart-bot
+# smart-bots
 
 ## Описание
 Два бота (один для группы вконтакте, другой для телеграмма) обученные с помощью
@@ -16,8 +16,9 @@
 DialogFlow - позволяет создавать разговорные интерфейсы поверх ваших продуктов и услуг,
  предоставляя мощный механизм обработки и понимания естественного языка.
 
-## Пример ботов
-вввв
+## Пример работы
+![Alt Text](http://ipic.su/img/img7/fs/smart-telebot.1557839616.gif)
+![Alt Text](http://ipic.su/img/img7/fs/smart-vkbot.1557839823.gif)
 
 ## DialogFlow
 DialogFlow позволяет создавать разговорные интерфейсы поверх ваших продуктов, предоставляя
@@ -129,7 +130,3 @@ class LogsHandler(logging.Handler):
         log_entry = self.format(record)
         self.bot.send_report(log_entry)
 ```
-
-## Пример сообщения :
-![Alt Text]()
-![Alt Text]()
