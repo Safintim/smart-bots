@@ -37,7 +37,7 @@ def main():
     while True:
         try:
             logger.info('(smart-bots) ВК Бот запущен')
-            VkBot(os.environ['VK_BOT'], os.environ['PROJECT_ID']).start_bot()
+            VkBot(os.getenv('VK_BOT'), os.getenv('PROJECT_ID')).start_bot()
         except vk_api.VkApiError as error:
             logger.warning('(smart-bots) ВК Бот упал')
             logger.error(error, exc_info=True)

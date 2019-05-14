@@ -35,5 +35,5 @@ class BotLogger:
 
 
 load_dotenv()
-bot_logger = BotLogger(os.environ['LOGGER_BOT'], os.environ['CHAT_ID'])
+bot_logger = BotLogger(os.getenv('LOGGER_BOT'), os.getenv('CHAT_ID'))
 logger = BotLogger.create_logger(LogsHandler(bot_logger))
