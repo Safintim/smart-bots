@@ -4,6 +4,7 @@ import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from dotenv import load_dotenv
 from dialoflow_tools import get_response_from_dialogflow
+from logger_bot import logger
 
 
 class VkBot:
@@ -22,10 +23,10 @@ class VkBot:
 
     def start_bot(self):
         vk_session = vk_api.VkApi(token=self.token)
-
         api = vk_session.get_api()
 
         longpoll = VkLongPoll(vk_session)
+
         for event in longpoll.listen():
             if event.type == VkEventType.MESSAGE_NEW and event.to_me:
                 self.echo(event, api)
@@ -33,7 +34,13 @@ class VkBot:
 
 def main():
     load_dotenv()
-    VkBot(os.getenv('VK_BOT'), os.getenv('PROJECT_ID')).start_bot()
+    while True:
+        try:
+            logger.info('(smart-bots) ВК Бот запущен')
+            VkBot(os.getenv('VK_BOT'), os.getenv('PROJECT_ID')).start_bot()
+        except vk_api.VkApiError as error:
+            logger.warning('(smart-bots) ВК Бот упал')
+            logger.error(error, exc_info=True)
 
 
 if __name__ == '__main__':

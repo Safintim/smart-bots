@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from telegram.ext import Updater, MessageHandler, CommandHandler, Filters
 from dialoflow_tools import get_response_from_dialogflow
+from logger_bot import logger
 
 
 class TelegramBot:
@@ -19,11 +20,17 @@ class TelegramBot:
             update.message.text)
         update.message.reply_text(response.query_result.fulfillment_text)
 
+    def error(bot, update, error):
+        logger.warning('Бот упал\nUpdate "%s" caused error\n', update)
+        logger.error(error, exc_info=True)
+
     def start_bot(self):
+        logger.info('(smart-bots) Телеграм Бот запущен')
         updater = Updater(self.token)
         dp = updater.dispatcher
         dp.add_handler(CommandHandler("start", self.start))
         dp.add_handler(MessageHandler(Filters.text, self.echo))
+        dp.add_error_handler(self.error)
 
         updater.start_polling()
 
