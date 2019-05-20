@@ -41,7 +41,8 @@ sudo apt-get install python3-pip
 2. Установить зависимости и скачать сам проект:
 
 ```sh
-https://github.com/Safintim/smart-bots.git
+git clone https://github.com/Safintim/smart-bots.git
+cd smart-bots
 pip3 install -r requirements.txt
 ```
 3. [Зарегистрироваться](https://dialogflow.com/docs/getting-started/create-account)
