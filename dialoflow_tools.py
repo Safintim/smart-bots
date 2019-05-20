@@ -39,5 +39,5 @@ def create_intent(project_id, display_name, training_phrases_parts, message_text
         messages=[message])
 
     response = intents_client.create_intent(parent, intent)
-    print('Intent created: {}'.format(response))
+    return response
 
