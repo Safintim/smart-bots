@@ -61,7 +61,7 @@ GOOGLE_APPLICATION_CREDENTIALS=your_key_file
 CHAT_ID=your_chat_id
 PROJECT_ID=your_project_id
 ```
-6. Для обучения бота отвечать на вопросы нужно создать создать файл "questions.json" в директории проекта.
+6. Для обучения бота нужно создать создать файл "questions.json" в директории проекта.
  Этот файл будет использован скриптом _training_bot.py_
  
  
