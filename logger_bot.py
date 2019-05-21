@@ -2,7 +2,6 @@ import os
 import logging
 import telegram
 from functools import partial
-from dotenv import load_dotenv
 
 
 def create_bot_logger(token):
@@ -15,7 +14,7 @@ def send_report(bot, chat_id, msg):
 
 
 send_report = partial(send_report,
-                      create_bot_logger(os.getenv('LOGGER_BOT')),
+                      create_bot_logger(os.environ('LOGGER_BOT')),
                       os.getenv('CHAT_ID'))
 
 
@@ -38,6 +37,4 @@ class LogsHandler(logging.Handler):
         send_report(log_entry)
 
 
-if __name__ == '__main__':
-    load_dotenv()
-    logger = create_logger(LogsHandler())
+logger = create_logger(LogsHandler())
