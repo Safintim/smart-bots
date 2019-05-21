@@ -21,7 +21,7 @@ class TelegramBot:
         update.message.reply_text(response.query_result.fulfillment_text)
 
     def error(bot, update, error):
-        logger.exception(f'Бот упал\nUpdate {update} caused error')
+        logger.exception(f'(smart-bots) Телеграм Бот упал\nUpdate {update} caused error')
 
     def start_bot(self):
         logger.info('(smart-bots) Телеграм Бот запущен')
