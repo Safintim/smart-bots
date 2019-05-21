@@ -38,9 +38,8 @@ def main():
         try:
             logger.info('(smart-bots) ВК Бот запущен')
             VkBot(os.getenv('VK_BOT'), os.getenv('PROJECT_ID')).start_bot()
-        except vk_api.VkApiError as error:
-            logger.warning('(smart-bots) ВК Бот упал')
-            logger.error(error, exc_info=True)
+        except vk_api.VkApiError:
+            logger.exception('(smart-bots) ВК Бот упал')
 
 
 if __name__ == '__main__':
