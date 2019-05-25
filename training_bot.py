@@ -36,20 +36,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-    # def form_intent(training_phrases_parts):
-    #     return ((display_name, questions_and_answers['questions'], questions_and_answers['answer'])
-    #             for display_name, questions_and_answers in training_phrases_parts.items())
-
-
-
-    # project_id = os.getenv("PROJECT_ID")
-    # training_phrases_parts = read_training_file('questions.json')
-    # existing_intents = list_intents(project_id)
-    # for display_name, questions, answer in form_intent(training_phrases_parts):
-    #     if display_name in existing_intents:
-    #         print(f'{display_name} is exist')
-    #     else:
-    #         response = create_intent(project_id, display_name, questions, answer)
-    #         print(f'{"-" * 3} Intent created: {response.display_name}')
